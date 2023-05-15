@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  bugzilla:
+    image: bugzilla-docker:2.0
+    env_file:
+      - ./bugzilla.properties
+    ports:
+      - '8081:80'
+    networks:
+      - postgres_default
+
+networks:
+  postgres_default:
+    external: true
